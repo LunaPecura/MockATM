@@ -1,0 +1,78 @@
+.metaScreen{
+    width: 700px;
+    height: 600px;
+    border: solid black;
+}
+
+.frame{
+    background-color: gainsboro;
+}
+
+#frameTop, #frameBottom{
+    width: 700px;
+    height: 100px;
+}
+
+#frameTop{
+    text-align: center;
+    font-size: 50px;
+    line-height: 100px;
+}
+
+#frameLeft, #frameRight{
+    width: 100px;
+    height: 400px;
+}
+
+.mainFrame{
+    width: 700px;
+    height: 400px;
+}
+
+.screen{
+    width: 500px;
+    height: 400px;
+    background-color: blue;
+    font-family: 'Courier New';
+    color: white;
+    font-size: 25px;
+}
+
+#outputScreen{
+    text-align: center;
+    padding-top: 25px;
+}
+
+.flex{
+    display: flex;
+}
+
+.halfHeight{
+    height: 50%;
+}
+
+.halfWidth{
+    width: 50%;
+}
+
+.button{
+    width: 80px;
+    height: 50px;
+    margin: 5px;
+    background-color: gray;
+    border: solid white;
+}
+
+.button:hover{
+    border: solid red;
+}
+
+#balance, #exit{
+    text-align: left;
+    padding-left: 5px;
+}
+
+#deposit, #withdrawal{
+    text-align: right;
+    padding-right: 5px;
+}

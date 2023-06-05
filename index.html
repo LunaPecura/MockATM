@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mock ATM</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script src="app.js" async defer></script>
+
+        <div class="metaScreen">
+
+            <div class="frame" id="frameTop">ATM</div>
+
+            <div class="mainFrame flex">
+
+                <div class="frame" id="frameLeft">
+
+                    <div class="halfHeight"></div>
+                    <div class="halfHeight">
+                        <div class="halfHeight">
+                            <input type="buttom" class="button" 
+                            id="balanceButton" onclick="checkBalance()">
+                        </div>
+                        <div class="halfHeight">
+                            <input type="buttom" class="button" 
+                            id="exitButton" onclick="exit()">
+                        </div>
+                    </div>
+
+                </div>        
+
+                <div class="screen">
+                    <div class="halfHeight" id="outputScreen">
+                        WELCOME
+                    </div>
+                    <div class="halfHeight" id="screenBottomHalf">
+                        <div class="halfHeight flex">
+                            <div class="halfWidth" id="balance">
+                                Check Balance
+                            </div>
+                            <div class="halfWidth" id="deposit">
+                                Deposit
+                            </div>
+                        </div>
+                        <div class="halfHeight flex">
+                            <div class="halfWidth" id="exit">
+                                Exit
+                            </div>
+                            <div class="halfWidth" id="withdrawal">
+                                Withdrawal
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="frame" id="frameRight">
+
+                    <div class="halfHeight"></div>
+                    <div class="halfHeight">
+                        <div class="halfHeight">
+                            <input type="buttom" class="button" 
+                            id="depositButton" onclick="makeDeposit()">
+                        </div>
+                        <div class="halfHeight">
+                            <input type="buttom" class="button" 
+                            id="withdrawalButton" onclick="makeWithdrawal()">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="frame" id="frameBottom"></div>
+        </div>
+
+    </body>
+</html>
