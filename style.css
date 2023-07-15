@@ -1,41 +1,60 @@
+/* MAIN CONTAINERS --------------------------------------------------------------------------*/
+
 .metaScreen{
     width: 700px;
-    height: 600px;
+    /* height: 600px; */
     border: solid black;
 }
 
-.frame{
-    background-color: gainsboro;
-}
-
 #frameTop, #frameBottom{
-    width: 700px;
     height: 100px;
+	border: solid orchid;
 }
 
 #frameTop{
     text-align: center;
     font-size: 50px;
     line-height: 100px;
-}
-
-#frameLeft, #frameRight{
-    width: 100px;
-    height: 400px;
+	border: solid limegreen;
 }
 
 .mainFrame{
-    width: 700px;
-    height: 400px;
+	display: flex;	
+    height: 350px;
+	border: solid darkblue;
+	background-color: gray;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 17px;
+}
+
+
+/* SUB-CONTAINERS --------------------------------------------------------------------------*/
+
+#frameLeft, #frameRight{
+    width: 90px;
+	border: solid teal;
+	border-radius: 10px;
+}
+
+.frame{
+    background-color: gainsboro;
+	border: solid red; /*should never show up on screen*/
 }
 
 .screen{
-    width: 500px;
-    height: 400px;
+    width: 430px;
     background-color: blue;
     font-family: 'Courier New';
     color: white;
-    font-size: 25px;
+    font-size: 20px;
+	border: solid gold;
+	padding: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 #outputScreen{
@@ -43,29 +62,19 @@
     padding-top: 25px;
 }
 
-.flex{
-    display: flex;
-}
 
-.halfHeight{
-    height: 50%;
-}
+/* CONTENTS -----------------------------------------------------------------------------------*/
 
-.halfWidth{
-    width: 50%;
-}
-
-.button{
+button{
     width: 80px;
     height: 50px;
     margin: 5px;
-    background-color: gray;
+    background-color: silver;
     border: solid white;
+	border-radius: 5px;
 }
 
-.button:hover{
-    border: solid red;
-}
+button:hover{ border: solid limegreen; }
 
 #balance, #exit{
     text-align: left;
@@ -76,3 +85,8 @@
     text-align: right;
     padding-right: 5px;
 }
+
+.flex{ display: flex; }
+.halfHeight{ height: 50%; }
+.halfWidth{ width: 50%; }
+
