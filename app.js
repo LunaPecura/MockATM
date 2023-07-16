@@ -1,17 +1,17 @@
 // HELPER FUNCTION
-const denomBreakDown = (array, amount) => {
-	let arrayCopy = [...array];
-	let acc = [];
+const denomBreakDown = (arrayOfDenominations, dollarAmount) => {
+	let arrayCopy = [...arrayOfDenominations];
+	let accumulator = [];
 
 	const f = (array, amount) => {
 		if(array.length === 0) { return; }
 		let denom = array.pop();
-		acc.push(Math.floor(amount/denom));
+		accumulator.push(Math.floor(amount/denom));
 		f(array, amount%denom);
 	}
 
-	f(arrayCopy, amount);
-	return acc;
+	f(arrayCopy, dollarAmount);
+	return accumulator;
 }
 
 
@@ -51,7 +51,7 @@ class ATM {
 			this.currentBalance -= withdrawalAmount;
 			this.output(`Withdrawal: $${withdrawalAmount}
 						<p>Your new balance is:<br>$${this.currentBalance}</p>`);
-			setTimeout(() => { this.showMoney(withdrawalAmount); }, 1000);
+			setTimeout(() => { this.showMoney(withdrawalAmount); }, 0);
 			this.unwireButtons();
 			this.buttons.forEach(b => b.setAttribute("onclick", "myATM.takeMoneyMsg()"));
 		} else { this.output(`Attempted Withdrawal: $${withdrawalAmount}
@@ -69,8 +69,15 @@ class ATM {
 			return `<div class="bill"><div class="billText ${denomTag}">$${denom}</div></div>\n`;
 		}
 		
+		let rows = [];
 		occurrences.forEach((occ, i) => {
-			billsDiv.innerHTML += makeBillDivString(denoms[i], denomTags[i]).repeat(occ);
+			for(let j=1; j<=occ; j++) {
+				rows.push(makeBillDivString(denoms[i], denomTags[i]));
+			}
+		})
+
+		rows.forEach((row, i) => {
+			setTimeout(() => { billsDiv.innerHTML += row; }, 250*(i+1));
 		})
 
 		billsDiv.classList.remove("hidden")
