@@ -6,15 +6,11 @@
     border: solid black;
 }
 
-#frameTop, #frameBottom{
-    height: 100px;
-	border: solid orchid;
-}
-
 #frameTop{
+	height: 75px;
     text-align: center;
     font-size: 50px;
-    line-height: 100px;
+    line-height: 75px;
 	border: solid limegreen;
 }
 
@@ -26,6 +22,12 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 17px;
+}
+
+#frameBottom{
+	display: flex;
+    height: 150px;
+	border: solid orchid;
 }
 
 
@@ -40,6 +42,12 @@
 .frame{
     background-color: gainsboro;
 	border: solid red; /*should never show up on screen*/
+}
+
+.billDiv {
+	display: flex;
+	border: solid black;
+	width: fit-content;
 }
 
 .screen{
@@ -60,10 +68,39 @@
 #outputScreen{
     text-align: center;
     padding-top: 25px;
+	font-size: 25px;
+	font-weight: 900;
 }
 
 
 /* CONTENTS -----------------------------------------------------------------------------------*/
+
+.bill {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 2px;
+	height: 100px;
+	width: 45px;
+	line-height: 45px;
+	border: solid darkgreen;
+	background-color: green;
+}
+
+.billText {
+	rotate: 270deg;
+	font-size: 30px;
+	font-weight: 900;
+	/* border: solid red; */
+}
+
+
+.billText.hundred { margin-top: 35px; }
+.billText.twenty { margin-top: 25px; }
+.billText.ten { margin-top: 25px; }
+.billText.five { margin-top: 20px; }
+.billText.one { margin-top: 20px; }
+
+
 
 button{
     width: 80px;
@@ -77,6 +114,7 @@ button{
 button:hover{ border: solid limegreen; }
 
 #balance, #exit{
+	font-size: 20px;
     text-align: left;
     padding-left: 5px;
 }
@@ -87,6 +125,7 @@ button:hover{ border: solid limegreen; }
 }
 
 .flex{ display: flex; }
+.hidden { display: none; }
 .halfHeight{ height: 50%; }
 .halfWidth{ width: 50%; }
 

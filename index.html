@@ -19,10 +19,10 @@
 					<div class="halfHeight"></div>
           <div class="halfHeight">
             <div class="halfHeight">
-              <button id="balanceButton" onclick="checkBalance()">
+              <button id="balanceButton" onclick="myATM.checkBalance()">
             </div>
             <div class="halfHeight">
-              <button id="exitButton" onclick="exit()">
+              <button id="exitButton" onclick="myATM.exit()">
             </div>
           </div>
 				</div>        
@@ -45,17 +45,25 @@
 					<div class="halfHeight"></div>
           <div class="halfHeight">
             <div class="halfHeight">
-              <button id="depositButton" onclick="makeDeposit()">
+              <button id="depositButton" onclick="myATM.makeDeposit()">
             </div>
             <div class="halfHeight">
-              <button id="withdrawalButton" onclick="makeWithdrawal()">
+              <button id="withdrawalButton" onclick="myATM.makeWithdrawal()">
             </div>
           </div>
 
         </div>
       </div>
 
-      <div class="frame" id="frameBottom"></div>
+      <div class="frame" id="frameBottom">
+				<div class="billDiv hidden">
+					<div class="bill"><div class="billText hundred">$100</div></div>
+					<div class="bill"><div class="billText twenty">$20</div></div>
+					<div class="bill"><div class="billText ten">$10</div></div>
+					<div class="bill"><div class="billText five">$5</div></div>
+					<div class="bill"><div class="billText one">$1</div></div>
+				</div>
+			</div>
     </div>
 
     </body>
