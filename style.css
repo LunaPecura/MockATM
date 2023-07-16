@@ -1,3 +1,13 @@
+@keyframes closeDrawer {
+	from {bottom: 0px;}
+	to {bottom: 155px;}
+}
+
+@keyframes openDrawer {
+	from {bottom: 155px;}
+	to {bottom: 0px;}
+}
+
 /* MAIN CONTAINERS --------------------------------------------------------------------------*/
 
 .metaScreen{
@@ -22,12 +32,16 @@
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 17px;
+	position: relative;
+	z-index: 2;
 }
 
 #frameBottom{
 	display: flex;
     height: 150px;
 	border: solid orchid;
+	position: relative;
+	z-index: 1;
 }
 
 

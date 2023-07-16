@@ -38,9 +38,27 @@ class ATM {
 
 
 	makeDeposit() {
-		let depositAmount = Math.floor(Math.random() * 1000) + 1;
+		let drawer = document.querySelector("#frameBottom");
+		let depositAmount = Math.floor(Math.random() * 500) + 1;
 		this.currentBalance += depositAmount;
-		this.output(`Deposit: $${depositAmount}<p>Your new balance is:<br>$${this.currentBalance}</p>`);
+		this.showMoney(depositAmount);
+		this.output(`Depositing $${depositAmount}...`);
+		this.unwireButtons();
+
+		setTimeout(() => {
+			drawer.setAttribute("style", "animation: closeDrawer 2s forwards");
+		}, 2000);
+
+		setTimeout(() => {
+			drawer.removeAttribute("style");
+			document.querySelector(".billsDiv").innerHTML = "";
+			drawer.setAttribute("style", "animation: openDrawer 2s forwards");
+		}, 4000);
+
+		setTimeout(() => {
+			this.output(`Deposit successful.<p>Your new balance is:<br>$${this.currentBalance}</p>`);
+			this.wireButtons();
+		}, 6000);
 	}
 
 
@@ -51,9 +69,10 @@ class ATM {
 			this.currentBalance -= withdrawalAmount;
 			this.output(`Withdrawal: $${withdrawalAmount}
 						<p>Your new balance is:<br>$${this.currentBalance}</p>`);
-			setTimeout(() => { this.showMoney(withdrawalAmount); }, 0);
+			this.showMoney(withdrawalAmount);
 			this.unwireButtons();
 			this.buttons.forEach(b => b.setAttribute("onclick", "myATM.takeMoneyMsg()"));
+			document.querySelector(".billsDiv").setAttribute("onclick", "myATM.takeMoney()");
 		} else { this.output(`Attempted Withdrawal: $${withdrawalAmount}
 						<p>Your current balance is:<br>$${this.currentBalance}</p>`); }
 	} 
@@ -65,33 +84,26 @@ class ATM {
 		let occurrences = denomBreakDown([...denoms].reverse(), amount);
 		let billsDiv = document.querySelector(".billsDiv");
 
+		// helper function
 		const makeBillDivString = (denom, denomTag) => {
 			return `<div class="bill"><div class="billText ${denomTag}">$${denom}</div></div>\n`;
 		}
 		
+		// display bills
 		let rows = [];
 		occurrences.forEach((occ, i) => {
-			for(let j=1; j<=occ; j++) {
-				rows.push(makeBillDivString(denoms[i], denomTags[i]));
-			}
-		})
-
-		rows.forEach((row, i) => {
-			setTimeout(() => { billsDiv.innerHTML += row; }, 250*(i+1));
-		})
-
-		billsDiv.classList.remove("hidden")
-		billsDiv.setAttribute("onclick", "myATM.takeMoney()");
+			for(let j=1; j<=occ; j++) { rows.push(makeBillDivString(denoms[i], denomTags[i])); } })
+		rows.forEach((row, i) => { setTimeout(() => { billsDiv.innerHTML += row; }, 100*(i+1)); });
 	}
 
 
 	takeMoney() {
 		let billsDiv = document.querySelector(".billsDiv");
 		billsDiv.innerHTML = "";
-		billsDiv.classList.add("hidden");
 		this.unwireButtons();
 		this.wireButtons();
 		this.output("Have a nice day");
+		billsDiv.removeAttribute("onclick");
 	}
 }
 
