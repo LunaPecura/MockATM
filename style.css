@@ -44,10 +44,11 @@
 	border: solid red; /*should never show up on screen*/
 }
 
-.billDiv {
+.billsDiv {
 	display: flex;
-	border: solid black;
+	/* border: solid black; */
 	width: fit-content;
+	margin: auto;
 }
 
 .screen{
